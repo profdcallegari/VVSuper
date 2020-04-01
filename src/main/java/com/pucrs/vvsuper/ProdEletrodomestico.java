@@ -4,8 +4,8 @@ public class ProdEletrodomestico extends Produto {
 
     private String tensao; // "110v", "220v", "bivolt"
 
-    public ProdEletrodomestico(int codigo, String descricao, double preco, String tensao) throws ProdutoInvalidoException {
-        super(codigo, descricao, preco);
+    public ProdEletrodomestico(int codigo, String descricao, double precoCusto, String tensao) throws ProdutoInvalidoException {
+        super(codigo, descricao, precoCusto);
     }
 
     @Override

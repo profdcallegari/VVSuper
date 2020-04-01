@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class ProdPerecivel extends Produto {
 
-    public ProdPerecivel(int codigo, String descricao, double preco, Date dtFab, Date dtVal) throws ProdutoInvalidoException {
-        super(codigo, descricao, preco);
+    public ProdPerecivel(int codigo, String descricao, double precoCusto, Date dtFab, Date dtVal) throws ProdutoInvalidoException {
+        super(codigo, descricao, precoCusto);
     }
 
     @Override

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class ProdBazarTest {
 
-    // TESTES ATRIBUTO CODIGO
+    // TESTES ATRIBUTO codigo
     // --------------------------------------------------------
     @Test(expected = ProdutoInvalidoException.class)
     public void whenCodigoZero_thenException() throws ProdutoInvalidoException {
@@ -57,7 +57,13 @@ public class ProdBazarTest {
         ProdBazar p = new ProdBazar(10000, "TesteCodigo10000", 1.0);
     }
 
-    // TESTES ATRIBUTO PRECO ---------------------------------------------------------
+    // TESTES ATRIBUTO descricao -----------------------------------------------------
+
+
+
+
+
+    // TESTES ATRIBUTO preco ---------------------------------------------------------
     @Test(expected = ProdutoInvalidoException.class)
     public void whenPrecoNegativo_thenException () throws ProdutoInvalidoException {
         ProdBazar p = new ProdBazar(1, "TestePrecoNegativo", -1.0);
@@ -71,15 +77,40 @@ public class ProdBazarTest {
     @Test
     public void shouldAllow_PrecoPositivo() {
         try {
-            double preco = 153.65;
-            ProdBazar p = new ProdBazar(1, "TestePrecoPositivo", preco);
-            assertEquals(preco, p.getPreco(), 0.01);
+            double precoCusto = 153.65;
+            ProdBazar p = new ProdBazar(1, "TestePrecoPositivo", precoCusto);
+            assertEquals(precoCusto, p.getPrecoCusto(), 0.01);
         } catch (ProdutoInvalidoException e) {
             fail("TestePrecoPositivo");
         }
     }
     
 
+    // TESTES METODO valorVenda -----------------------------------------------------
+
+    @Test
+    public void valorVendaDeveEmbutirImposto() {
+        try {
+            double precoCusto = 153.65;
+            double valorVenda = precoCusto = precoCusto * ProdBazar.IMPOSTO / 100.0;
+            ProdBazar p = new ProdBazar(1, "valorVendaDeveIncluirImposto", precoCusto);
+            assertEquals(valorVenda, p.valorVenda(), 0.01);
+        } catch (ProdutoInvalidoException e) {
+            fail("valorVendaDeveIncluirImposto");
+        }
+    }
   
 
+    // TESTES METODO toString -------------------------------------------------------
+
+    @Test
+    public void toString_ProdBazar() {
+        try {
+            String expected = "0001 ProdBazar (R$ 10.99)";
+            ProdBazar p = new ProdBazar(1, "ProdBazar", 10.99);
+            assertEquals(expected, p.toString());
+        } catch (ProdutoInvalidoException e) {
+            fail("toString_ProdBazar");
+        }
+    }
 }
