@@ -92,7 +92,7 @@ public class ProdBazarTest {
     public void valorVendaDeveEmbutirImposto() {
         try {
             double precoCusto = 153.65;
-            double valorVenda = precoCusto = precoCusto * ProdBazar.IMPOSTO / 100.0;
+            double valorVenda = precoCusto + (precoCusto * ProdBazar.IMPOSTO / 100.0);
             ProdBazar p = new ProdBazar(1, "valorVendaDeveIncluirImposto", precoCusto);
             assertEquals(valorVenda, p.valorVenda(), 0.01);
         } catch (ProdutoInvalidoException e) {
