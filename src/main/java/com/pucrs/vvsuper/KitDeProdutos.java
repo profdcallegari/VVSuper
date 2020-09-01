@@ -1,5 +1,6 @@
 package com.pucrs.vvsuper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class KitDeProdutos extends Produto {
@@ -9,6 +10,7 @@ public class KitDeProdutos extends Produto {
 
     public KitDeProdutos(int codigo, String descricao) throws ProdutoInvalidoException {
         super(codigo, descricao, Double.MAX_VALUE);  // Iniciando um kit com valor possível, porém inútil.
+        listaDeProdutos = new ArrayList<Produto>();
     }
 
     public boolean isValido () {
@@ -16,7 +18,7 @@ public class KitDeProdutos extends Produto {
     }
 
     public boolean adicionarProduto (Produto produto) {
-        return false;
+        return listaDeProdutos.add(produto);
     }
 
     public boolean removerProduto (Produto produto) {
@@ -24,7 +26,7 @@ public class KitDeProdutos extends Produto {
     }
 
     public int getQuantidade () {
-        return 0;
+        return listaDeProdutos.size();
     }
 
     @Override

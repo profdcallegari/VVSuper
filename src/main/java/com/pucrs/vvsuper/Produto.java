@@ -7,7 +7,11 @@ public abstract class Produto {
 	private double precoCusto;		// Deve ser positivo
 
 	public Produto(int codigo, String descricao, double precoCusto) throws ProdutoInvalidoException {
-		this.codigo = codigo;
+		
+		if (codigo >= 1 && codigo <= 9999)
+			this.codigo = codigo;
+		else
+		throw new ProdutoInvalidoException(codigo + " código inválido. Deve estar no intervalo [1; 9999].");
 		
 		this.descricao = descricao;
 		
