@@ -52,5 +52,21 @@ public class KitDeProdutosTest {
     }
 
 
+    @Test
+    public void kitComDoisProdutos_valor () {
+        try {
+            ProdBazar pb1 = new ProdBazar(10, "Caneta mágica", 2.0);
+            ProdBazar pb2 = new ProdBazar(20, "Lápis mágico", 3.5);
+            
+            KitDeProdutos kit = new KitDeProdutos(1, "Kit de Natal");
+            kit.adicionarProduto(pb1);
+            kit.adicionarProduto(pb2);
+
+            assertEquals(4.63, kit.valorVenda(), 0.01);
+        } catch (ProdutoInvalidoException e) {
+            fail("kitComDoisProdutos_quantidade2");
+        }
+    }
+
 
 }
