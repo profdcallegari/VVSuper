@@ -36,7 +36,20 @@ public class KitDeProdutos extends Produto {
 
     @Override
     public double valorVenda() {
-        return 0;
+        double total = 0.0;
+
+        for (Produto produto : listaDeProdutos) {
+            double valItem = produto.valorVenda();
+
+            if (produto instanceof ProdBazar) {
+                valItem -= (20.0 / 100.0 * valItem);
+            }
+            
+            total += valItem;
+
+        }
+
+        return total;
     }
 
 }

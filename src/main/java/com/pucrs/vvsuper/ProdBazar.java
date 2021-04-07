@@ -1,5 +1,7 @@
 package com.pucrs.vvsuper;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
+
 public class ProdBazar extends Produto{
 
     public static final double IMPOSTO = 5.25;
@@ -10,6 +12,7 @@ public class ProdBazar extends Produto{
 
     @Override
     public double valorVenda() {
-        return 0;
+        double valorImposto = getPrecoCusto() * IMPOSTO / 100.0;
+        return getPrecoCusto() + valorImposto;
     }
 }
