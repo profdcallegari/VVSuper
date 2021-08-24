@@ -1,7 +1,5 @@
 package com.pucrs.vvsuper;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
 public class ProdBazar extends Produto{
 
     public static final double IMPOSTO = 5.25;
